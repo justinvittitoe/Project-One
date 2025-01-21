@@ -1,1 +1,139 @@
-//table.
+:root {
+    --primaryLight: #d89a2e;
+    --primaryDark: #31631a;
+    --secondaryLight: #F8EBE6;
+    --secondaryDark: #3C3C3B;
+    --headerFont: 'Rafaella Signature', sans-serif;
+    --textFont: 'Lato', sans-serif;
+
+}
+
+body {
+    background-color: var(--secondaryLight);
+    background-color: rgba(248, 235, 230, 0.25);
+    color: var(--secondaryDark);
+}
+/* 
+header {
+    background-color: var(--primaryDark);
+    color: var(--secondaryLight);
+    font-family: var(--headerFont);
+    font-weight: bold;
+} */
+
+h1 {
+    color: var(--primaryDark);
+    font-family: var(--headerFont)
+}
+
+h2 {
+    color: var(--primaryDark);
+    font-family: var(--textFont);
+    font-weight: bold;
+    font-style: italic;
+}
+
+h3 {
+    color: var(--primaryDark);
+    font-family: var(--textFont);
+    font-weight: lighter;
+}
+
+h4 {
+    color: var(--primaryDark);
+    font-family: var(--headerFont)
+    font-weight: bold;
+}
+
+p {
+    font-family: var(--textFont);
+    font-weight: lighter;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primaryDark) !important;
+    /* position: fixed;
+    top: 0;
+    right: 0; */
+}
+
+.nav-link {
+    background-color: var(--primaryDark);
+    color: var(--secondaryLight);
+    position: flex;
+}
+
+/* Logo */
+.text-center {
+
+}
+
+.my-4 {
+
+}
+
+.img-fluid {
+
+}
+
+/* Quiz section */
+.quiz {
+
+}
+
+.form-select {
+    font-family: var(--textFont);
+    font-weight: lighter;
+}
+
+/* Results section */
+.results {
+
+}
+
+.card {
+}
+
+.card-header {
+    background-color: var(--primaryLight);
+}
+
+.card-body {
+    font-family: var(--textFont);
+    font-weight: lighter;
+}
+
+.card-text {
+}
+
+.d-flex {
+}
+
+.justify-content-around {
+}
+
+
+/* Button */
+.btn-success {
+    background-color: var(--primaryDark);
+    border-color: var(--secondaryDark);
+    color: var(--secondaryLight);
+    font-family: var(--headerFont)
+}
+
+/* Video section */
+.card-body p {
+
+}
+
+/* Hover card section */
+.hover-card {
+
+}
+
+/* Footer */
+footer {
+
+}
+*/
