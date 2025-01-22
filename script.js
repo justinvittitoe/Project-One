@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function() {
 const goalbtn = document.querySelector('#goal');
 const restbtn = document.querySelector('#rest');
 const mdbtn = document.querySelector('#md');
-const agebtn = document.querySelector('');
-const submit = document.querySelector('')
+const agebtn = document.querySelector('#age');
+const submit = document.querySelector('#submit')
 
 
 //Prefrence choices
