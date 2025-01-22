@@ -39,16 +39,46 @@
     <!-- Quiz section -->
         <div class="quiz card mb-4">
             <div class="card-header">Just answer a few questions:</div>
-            <select class="form-select">
-                <option>Goals</option>
+            <select class="form-select" name="goal" id="goal">
+                <option value="null">Choose a dietary goal:</option>
+                <option value="fiber">Increase Fiber</option>
+                <option value="balanced">Balanced Diet</option>
+                <option value="decrease sugar">Decrease Artificial Sugars</option>
+                <option value="transfat">Decrease Transfat</option>
+                <option value="weight">Maintain Healthy Weight</option>
+                <option value="muscle">Gain Muscle</option>
+                <option value="decrease sodium">Decrease Sodium</option>
+                <option value="excercise">Increase Excericise and Energy</option>
+                <option value="vitamins">Increase Vitamin Intake</option>
+                <option value="hydration">Hydration</option>
             </select>
-            <select class="form-select">
-                <option>Diet Restrictions</option>
+            <select class="form-select" name="restrictions" id="rest">
+                <option value="null">Choose any dietary restrictions:</option>
+                <option value="GF">Gluten Free</option>
+                <option value="DF">Dairy Free</option>
+                <option value="veg">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="halal">Halal</option>
+                <option value="Kosher">Kosher</option>
+                <option value="sugarfree">Sugar Free</option>
+                <option value="FODMAP">FODMAP</option>
+                <option value="nutfree">Nut Free</option>
+                <option value="eggfree">Egg Free</option>
+                <option value="antiinflam">Anti-inflamatory</option>
             </select>
-            <select class="form-select">
-                <option>Age</option>
+            <select class="form-select name="Medical Restrictions" id="med">
+                <option value="null">What are your medical restrictions?</option>
+                <option value="celiac">Celiac</option>
+                <option value="lactose">Lactose Intolerant</option>
+                <option value="diabetes">Diabetes</option>
             </select>
-            <button class="btn btn-success">Find the right plan</button>
+            <select class="form-select name="Age" id="age">
+                <option value="null">How old are you?</option>
+                <option value="0-30">0-30</option>
+                <option value="31-50">31-50</option>
+                <option value="50+">50+</option>
+            </select>
+            <button class="btn btn-success" id="submit">Find the right plan</button>
         </div>
     <!-- Results section     -->
         <div class="results">
