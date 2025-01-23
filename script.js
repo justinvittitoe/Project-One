@@ -128,6 +128,16 @@ function loadDietRecommendation() {
         document.getElementById("diet-description").innerText = "Please try again.";
     }
 }
+
+
+document.addEventListener('mousemove', function () {
+    const scrollThreshold = window.innerHeight / 2; // Adjust this value as needed
+    if (window.scrollY > scrollThreshold) {
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+});
+
 document.getElementById("submit").addEventListener("click", loadDietRecommendation);
 // const retrieve = localStorage.getItem("userDiet");
 //     const selectedDiet = JSON.parse(retrieve)
@@ -186,3 +196,15 @@ document.getElementById("submit").addEventListener("click", loadDietRecommendati
 //     },
 // };
 
+
+document.getElementById('closePopup').addEventListener('click', function () {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+});
+
+document.getElementById('newsletterForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Thank you for subscribing!');
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+});
