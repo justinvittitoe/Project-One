@@ -72,40 +72,110 @@ function getUserSelectionFromLocalStorage() {
     return null;
 }
 
+// Diet types and descriptions (use userDiet)
+const dietData = {
+    "Keto": {
+        type: "Keto Diet",
+        description: "A low-carb, high-fat diet The ketogenic (keto) diet and low-carb diets reduce carbohydrate intake and focus on high-fat, moderate protein foods. While the keto diet emphasizes a high-fat, very low-carb approach, low-carb diets may allow for more carbohydrates but still limit high-carb foods like bread, pasta, and sugar.",
+        icons: ["🥑", "🥩", "🥓"]
+    },
+    "Vegan": {
+        type: "Vegan Diet",
+        description: "A plant-based diet avoiding all animal products.",
+        icons: ["🥦", "🍎", "🌰"]
+    },
+    "Vegetarian": {
+        type: "Vegetarian Diet",
+        description: "A plant-based diet that avoids meat but may include dairy and eggs.",
+        icons: ["🥦", "🍳", "🧀"]
+    },
+    "Mediterranean": {
+        type: "Mediterranean Diet",
+        description: "Emphasizes whole grains, lean proteins (especially fish), fruits, vegetables, legumes, nuts, seeds, and olive oil. It is rich in healthy fats, fiber, and antioxidants.",
+        icons: ["🍅", "🐟", "🥖"]
+    },
+    "Paleo": {
+        type: "Paleo Diet",
+        description: "Based on the types of foods that ancient hunter-gatherers might have eaten, the paleo diet emphasizes lean meats, fish, fruits, vegetables, nuts, and seeds while eliminating grains, legumes, dairy, processed sugars, and artificial additives.",
+        icons: ["🍅", "🐟", "🍗"]  
+    },
+    "Whole30": {
+        type: "Whole30 Diet",
+        description: "A 30-day program that eliminates sugar, alcohol, grains, legumes, soy, and dairy from your diet. It is designed to help you reset your eating habits and discover how certain foods make you feel.",
+        icons: ["🍖", "🥦", "🍠"]
+    },
+    "GlutenFree": {
+        type: "Gluten-Free Diet",
+        description: "Eliminates gluten, a protein found in wheat, barley, and rye. It is essential for those with celiac disease, gluten sensitivity, or wheat allergy.",
+        icons: ["🍞", "🥖", "🥯"]
+    },
+    "FODMAP": {
+        type: "Low FODMAP Diet",
+        description: "Eliminates foods high in FODMAPs (fermentable oligosaccharides, disaccharides, monosaccharides, and polyols) to reduce symptoms of irritable bowel syndrome (IBS).",
+        icons: ["🍎", "🥦", "🍞"]
+    },
+    "Kosher": {
+        type: "Kosher Diet",
+        description: "A diet that follows Jewish dietary laws. It includes specific rules for the types of animals that can be eaten, how they are prepared, and which foods can be eaten together.",
+        icons: ["🥩", "🍇", "✡️"]
+    },
+    "Halal": {
+        type: "Halal Diet",
+        description: "A diet that follows Islamic dietary laws. It includes specific rules for the types of animals that can be eaten, how they are prepared, and which foods can be eaten together.",
+        icons: ["🥩", "🍇", "☪️"]
+    },
+};
 
-
-
-
-
-
-
-function cartesian(args) {
-    const combinations = [];
-    //number of combinations
-    const max = (args.goal.length)*(args.rest.length)*(args.md.length)*(args.age.length);
-    console.log(`Number of combinations: ${max}`)
-    //generate all combinations of selections
-    for (let i=0; i<args.goal.length; i++ ) {
-        const goalItem = args.goal[i];
-        for (let j=0; j < args.rest.length; j++) {
-            const restItem = args.rest[j];
-            for (let k = 0; k < args.md.length; k++) {
-                const mdItem = args.md[k];
-                for ( l=0; l<args.age.length;l++) {
-                    ageItem = args.age[l];
-                    combinations.push([goalItem,restItem,mdItem,ageItem]);
-                }
+    function loadDietRecommendation() {
+            const selectedDiet = localStorage.getItem("userDiet") || "Mediterranean"; 
+    
+            if (dietData[selectedDiet]) {
+                document.getElementById("diet-type").innerText = dietData[selectedDiet].type;
+                document.getElementById("diet-description").innerText = dietData[selectedDiet].description;
+                
+                const iconsContainer = document.getElementById("diet-icons");
+                iconsContainer.innerHTML = ""; // Clear previous icons
+                dietData[selectedDiet].icons.forEach(icon => {
+                    const iconElement = document.createElement("div");
+                    iconElement.innerText = icon;
+                    iconsContainer.appendChild(iconElement);
+                });
+            } else {
+                document.getElementById("diet-type").innerText = "Diet Not Found";
+                document.getElementById("diet-description").innerText = "Please try again.";
             }
-
         }
 
-    }
-    return combinations;
-}
 
-const allCombinations = cartesian(args);
-const r = [allCombinations]
-console.log(r);
+
+
+// function cartesian(args) {
+//     const combinations = [];
+//     //number of combinations
+//     const max = (args.goal.length)*(args.rest.length)*(args.md.length)*(args.age.length);
+//     console.log(`Number of combinations: ${max}`)
+//     //generate all combinations of selections
+//     for (let i=0; i<args.goal.length; i++ ) {
+//         const goalItem = args.goal[i];
+//         for (let j=0; j < args.rest.length; j++) {
+//             const restItem = args.rest[j];
+//             for (let k = 0; k < args.md.length; k++) {
+//                 const mdItem = args.md[k];
+//                 for ( l=0; l<args.age.length;l++) {
+//                     ageItem = args.age[l];
+//                     combinations.push([goalItem,restItem,mdItem,ageItem]);
+//                 }
+//             }
+
+//         }
+
+//     }
+//     return combinations;
+// }
+
+// const allCombinations = cartesian(args);
+// const r = [allCombinations]
+// console.log(r);
 
 
 

@@ -40,7 +40,7 @@
         <div class="quiz card mb-4">
             <div class="card-header">Just answer a few questions:</div>
             <select class="form-select" name="goal" id="goal">
-                <option value="null">Choose a dietary goal:</option>
+                <option value="" disabled selected>Choose a dietary goal:</option>
                 <option value="fiber">Increase Fiber</option>
                 <option value="balanced">Balanced Diet</option>
                 <option value="decrease sugar">Decrease Artificial Sugars</option>
@@ -53,7 +53,7 @@
                 <option value="hydration">Hydration</option>
             </select>
             <select class="form-select" name="restrictions" id="rest">
-                <option value="null">Choose any dietary restrictions:</option>
+                <option value="" disabled selected>Choose any dietary restrictions:</option>
                 <option value="GF">Gluten Free</option>
                 <option value="DF">Dairy Free</option>
                 <option value="veg">Vegetarian</option>
@@ -66,14 +66,19 @@
                 <option value="eggfree">Egg Free</option>
                 <option value="antiinflam">Anti-inflamatory</option>
             </select>
-            <select class="form-select name="Medical Restrictions" id="med">
-                <option value="null">What are your medical restrictions?</option>
-                <option value="celiac">Celiac</option>
-                <option value="lactose">Lactose Intolerant</option>
+            <select class="form-select" name="Medical Restrictions" id="med">
+                <option value="" disabled selected>Do you have any of the following medical conditions?</option>
+                <option value="celiac">Celiac's Disease</option>
+                <option value="lactose">Lactose Intolerance</option>
                 <option value="diabetes">Diabetes</option>
+                <option value="hypertension">Hypertension</option>
+                <option value="high cholesterol">High Cholesterol</option>
+                <option value="kidney disease">Kidney Disease</option>
+                <option value="ibs">Irritable Bowel Syndrome</option>
+                <option value="crohns">Crohn's Disease</option>
             </select>
-            <select class="form-select name="Age" id="age">
-                <option value="null">How old are you?</option>
+            <select class="form-select" name="age" id="age">
+                <option value="" disabled selected>How old are you?</option>
                 <option value="0-30">0-30</option>
                 <option value="31-50">31-50</option>
                 <option value="50+">50+</option>
