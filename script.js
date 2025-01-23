@@ -158,4 +158,22 @@ function cartesian(args) {
     return combinations;
 }
 
+document.addEventListener('mousemove', function () {
+    const scrollThreshold = window.innerHeight / 2; // Adjust this value as needed
+    if (window.scrollY > scrollThreshold) {
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+});
 
+document.getElementById('closePopup').addEventListener('click', function () {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+});
+
+document.getElementById('newsletterForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Thank you for subscribing!');
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+});
