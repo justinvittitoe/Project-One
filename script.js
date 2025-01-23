@@ -138,6 +138,17 @@ document.addEventListener('mousemove', function () {
     }
 });
 
+document.getElementById('closePopup').addEventListener('click', function () {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+});
+
+document.getElementById('newsletterForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Thank you for subscribing!');
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+});
 document.getElementById("submit").addEventListener("click", loadDietRecommendation);
 // const retrieve = localStorage.getItem("userDiet");
 //     const selectedDiet = JSON.parse(retrieve)
@@ -197,14 +208,3 @@ document.getElementById("submit").addEventListener("click", loadDietRecommendati
 // };
 
 
-document.getElementById('closePopup').addEventListener('click', function () {
-    document.getElementById('popup').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-});
-
-document.getElementById('newsletterForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    alert('Thank you for subscribing!');
-    document.getElementById('popup').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-});
