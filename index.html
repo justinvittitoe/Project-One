@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digest, by GreenWings</title>
 <!--  Reset CSS -->
-    <link rel="stylesheet" href="reset.css">
+
+    <link rel="stylesheet" href="./assets/css/reset.css">
+
 <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <!-- Font CDN -->
@@ -20,6 +22,11 @@
 <!-- Header & NavBar -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+         <a href="" class="nav-logo">
+             <img src="assets/css/images/Digest_log_WHITE-GOLD.png" alt="GreenWings Logo" class="img-fluid" style="max-width: 300px;">
+         </a>
+
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
@@ -30,7 +37,7 @@
 
 <!-- Logo     -->
     <div class="text-center my-4">
-        <img src="./assets/css/images/Digest_Logo.png" alt="GreenWings Logo" class="img-fluid" style="max-width: 300px;">
+
     </div>
 
 <!-- Main content -->
@@ -39,36 +46,68 @@
     <!-- Quiz section -->
         <div class="quiz card mb-4">
             <div class="card-header">Just answer a few questions:</div>
-            <select class="form-select">
-                <option>Goals</option>
+            <select class="form-select" name="goal" id="goal">
+                <option value="" disabled selected>Choose a dietary goal:</option>
+                <option value="fiber">Increase Fiber</option> <!--Vegetarian -->
+                <option value="balanced">Balanced Diet</option> <!-- Mediterranean -->
+                <option value="decrease sugar">Decrease Artificial Sugars</option> <!-- Sugar-free -->
+                <option value="transfat">Decrease Transfats</option>  <!-- Keto -->
+                <option value="weight">Maintain Healthy Weight</option> <!-- FODMAP -->
+                <option value="muscle">Gain Muscle</option> <!-- Paleo -->
+                <option value="decrease sodium">Decrease Sodium</option>    <!-- DASH DASH DASH -->
+                <option value="disease prevention">Prevent heart disease</option> <!-- DASH -->
             </select>
-            <select class="form-select">
-                <option>Diet Restrictions</option>
+            <select class="form-select" name="restrictions" id="rest">
+                <option value="" disabled selected>Choose any dietary restrictions:</option>
+                <option value="GF">Gluten Free</option>
+                <option value="DF">Dairy Free</option>
+                <option value="veg">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="sugarfree">Sugar Free</option>
+                <option value="FODMAP">FODMAP</option>
+                <option value="antiinflam">Anti-inflamatory</option>
+                <option value="nar">None</option>
             </select>
-            <select class="form-select">
-                <option>Age</option>
+            <select class="form-select name="Medical Restrictions" id="md">
+                <option value="" disabled selected>Do you have any medical restrictions?</option>
+                <option value="celiac">Celiac's Disease</option>
+                <option value="lactose">Lactose Intolerant</option>
+                <option value="diabetes">Diabetes</option>
+                <option value="hypertension">Hypertension</option>
+                <option value="high cholesterol">High Cholesterol</option>
+                <option value="ibs">IBS</option>
+                <option value="crohns">Crohn's Disease</option> 
+                <option value="nam">None</option>
             </select>
-            <button class="btn btn-success">Find the right plan</button>
+            <select class="form-select name="Age" id="age">
+                <option value="" disabled selected>How old are you?</option>
+                <option value="0-30">0-30</option>
+                <option value="31-50">31-50</option>
+                <option value="50+">50+</option>
+            </select>
+            <button class="btn btn-success" id="submit">Find the right plan</button>
         </div>
     <!-- Results section     -->
         <div class="results">
             <div class="card mb-4">
                 <div class="card-header">Based on your answers, we recommend:</div>
                 <div class="card-body">
-                    <h4 class="card-text">Diet Type</h4>
-                    <p class="card-text">Description of Diet</p>
-                    <div class="d-flex justify-content-around">
-                        <div>Icon</div>
-                        <div>Icon</div>
-                        <div>Icon</div>
-                    </div>
+                    <h4 class="card-text" id="diet-type"></h4>
+                    <p class="card-text" id="diet-description"></p>
+                    <!-- <div class="d-flex justify-content-around">
+                        <div id="diet-icons"></div>
+                        <div id="diet-icons"></div>
+                        <div id="diet-icons"></div>
+                    </div> -->
                     <div class="btn btn-success">Random Dish</div>
                 </div>
             </div>
     <!-- Video section     -->
             <div class="card mb-4">
                 <div class="card-body">
-                    <p>Info Video of Selected Diet<br>Source: YouTube</p>
+                    <iframe id="diet-video" src="" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p id="source"></p>
                 </div>
             </div>
         </div>
@@ -84,6 +123,20 @@
     <footer class="text-center mt-4">
         <p>&copy; Powered by GreenWings</p>
     </footer>
-    <script src="./assets/js/script.js"></script>
+    
+    <!-- Newsletter Popup -->
+     
+<div class="overlay" id="overlay"></div>
+<div class="popup" id="popup">
+    <button class="close-btn" id="closePopup">&times;</button>
+    <img src = assets/css/images/Digest_logo_BLK-GOLD.png alt="GreenWings Logo" class="popup-logo">
+    <h2>Subscribe to our Newsletter for exlusive offers!</h2>
+    <form id="newsletterForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <button type="submit">Subscribe</button>
+    </form>
+</div>
+<script src="./script.js"></script>
 </body>
 </html>
