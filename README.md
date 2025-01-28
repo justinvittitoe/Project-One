@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/justinvittitoe/Digest">
-    <img src="../Project-One/assets/css/images/Digest_log_WHITE-GOLD.png" alt="Logo" width="80" height="80">
+    <img src="./assets/css/images/Digest_Logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Digest</h3>
@@ -91,7 +91,7 @@
 
 
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![Bootstrap][Javascript.com]][Javascript-url]
+* [![Javascript][Javascript.com]][Javascript-url]
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -111,10 +111,12 @@
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [ ] Email Newsletter
+- [ ] User Preferences Modal
+- [ ] User Diet Recomendation
+    - [ ] Youtube video
+    - [ ] Flip Cards
+    - [ ] Next Best Diet
 
 See the [open issues](https://github.com/justinvittitoe/Digest/issues) for a full list of proposed features (and known issues).
 
@@ -155,9 +157,11 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Justin Vittitoe - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-Zach Donels - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-Lisa Jorgensen -[@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Justin Vittitoe - [!linked-in[linkedin-url]][linkedin-shield]
+
+Zach Donels - 
+
+Lisa Jorgensen -
 
 Project Link: [https://github.com/justinvittitoe/Digest](https://github.com/justinvittitoe/Digest)
 
