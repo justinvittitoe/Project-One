@@ -270,8 +270,6 @@ const recipe = {
 }
 
 function randomDish(selectedDiet) {
-   
-    
     const dish = Math.floor(Math.random() * 3);
     selectedDiet = JSON.parse(localStorage.getItem('topDiet'))
     document.getElementById("recipe-name").textContent = recipe[selectedDiet].name[dish];
@@ -282,13 +280,16 @@ function randomDish(selectedDiet) {
 
 
 
-document.addEventListener('mousemove', function () {
+function handleMouseMove () {
     const scrollThreshold = window.innerHeight / 2; // Adjust this value as needed
     if (window.scrollY > scrollThreshold) {
         document.getElementById('popup').style.display = 'block';
         document.getElementById('overlay').style.display = 'block';
+        document.removeEventListener('mousemove', handleMouseMove);
     }
-});
+};
+
+document.addEventListener('mousemove',handleMouseMove);
 
 document.getElementById('closePopup').addEventListener('click', function () {
     document.getElementById('popup').style.display = 'none';
