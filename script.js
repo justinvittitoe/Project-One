@@ -16,7 +16,8 @@ const goalbtn = document.querySelector('#goal');
 const restbtn = document.querySelector('#rest');
 const mdbtn = document.querySelector('#md');
 const agebtn = document.querySelector('#age');
-const submit = document.querySelector('#submit')
+const submit = document.querySelector('#submit');
+const random = document.querySelector('#random');
 
 //Preference choices
 const args = {
@@ -156,6 +157,37 @@ function getUserSelectionFromLocalStorage() {
     return null;
 }
 
+
+
+//Random Dish function
+
+function randomDish(selectedDiet) {
+   
+    const value = 1
+    const dish = Math.floor(Math.random(value)*3)
+    document.getElementById("recipe-name").textContent = recipe[selectedDiet].name;
+    document.getElementById("recipe-link").textContent = recipe[selectedDiet].link;
+    
+}
+//event listener
+random.addEventListener('click',randomDish)
+const recipe = {
+    mediterranean: {
+        name: ['Winter White Bean and Radicchio Salad','Mediterranean Chicken Bowl','Airfryer Salmon and Swiss Chard'],    
+        link: [ 'https://www.goodhousekeeping.com/food-recipes/a41870158/winter-white-bean-and-radicchio-salad-recipe/','https://www.goodhousekeeping.com/food-recipes/a34221194/mediterranean-chicken-bowls-recipe/','https://www.goodhousekeeping.com/food-recipes/a41925316/air-fryer-salmon-and-swiss-chard-recipe/'],
+    },
+    keto:  {
+        name: ['Summer Squash Frittata Recipe','Korean Pineapple Beed Letuce Wraps','Crispy Chicken with White Wine Pan Sauce'],
+        link: ['https://www.goodhousekeeping.com/food-recipes/easy/a44726/summer-squash-frittata-recipe/','https://www.goodhousekeeping.com/food-recipes/easy/a47669/korean-pineapple-beef-lettuce-wraps-recipe/','https://www.goodhousekeeping.com/food-recipes/a37295/crispy-chicken-with-white-wine-pan-sauce-recipe/'],
+    },
+    
+    paleo:  {
+        name: ['Skillet Apple Chicken','Buffalo Beet BBQ Sauce Chicken Wings','Delicata Squash Pumpkin Curry'],
+        link: ['https://thepaleodiet.com/recipe/skillet-apple-chicken/','https://thepaleodiet.com/recipe/buffalo-beet-barbecue-sauce/','https://thepaleodiet.com/recipe/delicata-squash-pumpkin-curry/'],
+    }
+    
+}
+    
 document.addEventListener('mousemove', function () {
     const scrollThreshold = window.innerHeight / 2; // Adjust this value as needed
     if (window.scrollY > scrollThreshold) {
@@ -175,6 +207,3 @@ document.getElementById('newsletterForm').addEventListener('submit', function (e
     document.getElementById('popup').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
 });
-
-
-
