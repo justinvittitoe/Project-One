@@ -34,26 +34,27 @@
                     
                 <div><li class="nav-item"><a class="nav-contact" href="#">Contact</a></li></div>
 
-                <div><li class="nav-item"><a class="nav-signin" href="#" id="nav-signin">Sign In</a></li></div>
+                 <button id="openModalButton">Sign In</button>
+
+    <!-- Sign In Modal -->
+    <div id="signInModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" id="closeModal">&times;</span>
+        <h2>Sign In</h2>
+        <form id="signInForm">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+          <button type="submit">Sign In</button>
+        </form>
+        <p>Don't have an account? <a href="#" id="signUpLink">Sign Up</a></p>
+        <p id="welcomeMessage"></p>
+      </div>
+    </div>
             </ul>
         </nav>
     </header>
 
-    <div id="signInModal" class="modal">
-        <div class="modal-content">
-          <span class="close-button">&times;</span>
-          <h2>Sign In</h2>
-          <form>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <button type="submit" id="signinButton" name="signin" required></button>
-          </form>
-          <p>Don't have an account? <a href="#" id="signUpLink">Sign Up</a></p>
-          <p id="welcomeMessage"></p>
-        </div>
-      </div>
-
-
+   
 <!-- Logo     -->
     <div class="text-center my-4">
 
@@ -182,11 +183,11 @@
     </div>
         
 <!-- Footer -->
- <div>          
+         
     <footer class="text-center mt-4">
-        <p>&copy; Powered by GreenWings</p>
+       <div class ="footer"> <p>&copy; Powered by GreenWings</p> </div>
     </footer>
-</div>
+
     <!-- Newsletter Popup -->
      
 <div class="overlay" id="overlay"></div>

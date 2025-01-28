@@ -304,6 +304,19 @@ document.getElementById('newsletterForm').addEventListener('submit', function (e
 
 
 
+// Get modal elements
+const modal = document.getElementById('signInModal');
+const openModalButton = document.getElementById('openModalButton');
+const closeModal = document.getElementById('closeModal');
+const signInForm = document.getElementById('signInForm');
+const welcomeMessage = document.getElementById('welcomeMessage');
+
+// Open modal
+openModalButton.addEventListener('click', () => {
+  modal.style.display = 'block';
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const signInButton = document.getElementById('nav-signin');
     const signInModal = document.getElementById('signInModal');
@@ -333,6 +346,26 @@ document.addEventListener('DOMContentLoaded', () => {
     welcomeMessage.style.display = 'block';
   });
 
+
+// Close modal
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// Close modal when clicking outside the modal content
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+// Handle form submission
+signInForm.addEventListener('submit', (event) => {
+  event.preventDefault(); // Prevent form from reloading the page
+  const username = document.getElementById('username').value;
+  welcomeMessage.textContent = `Welcome, ${username}!`;
+  modal.style.display = 'none'; // Close the modal
+});
 
 // Hover Card Functionality
 
