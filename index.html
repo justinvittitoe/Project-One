@@ -35,10 +35,10 @@
         </nav>
     </header>
 
-<!-- Logo    
+<!-- Logo     -->
     <div class="text-center my-4">
-        <img src="./assets/css/images/Digest_Logo.png" alt="GreenWings Logo" class="img-fluid" style="max-width: 300px;">
-    </div> -->
+
+    </div>
 
 <!-- Main content -->
     <div class="container-fluid">
@@ -48,16 +48,14 @@
             <div class="card-header">Just answer a few questions:</div>
             <select class="form-select" name="goal" id="goal">
                 <option value="" disabled selected>Choose a dietary goal:</option>
-                <option value="fiber">Increase Fiber</option>
-                <option value="balanced">Balanced Diet</option>
-                <option value="decrease sugar">Decrease Artificial Sugars</option>
-                <option value="transfat">Decrease Transfat</option>
-                <option value="weight">Maintain Healthy Weight</option>
-                <option value="muscle">Gain Muscle</option>
-                <option value="decrease sodium">Decrease Sodium</option>
-                <option value="excercise">Increase Excericise and Energy</option>
-                <option value="vitamins">Increase Vitamin Intake</option>
-                <option value="hydration">Hydration</option>
+                <option value="fiber">Increase Fiber</option> <!--Vegetarian -->
+                <option value="balanced">Balanced Diet</option> <!-- Mediterranean -->
+                <option value="decrease sugar">Decrease Artificial Sugars</option> <!-- Sugar-free -->
+                <option value="transfat">Decrease Transfats</option>  <!-- Keto -->
+                <option value="weight">Maintain Healthy Weight</option> <!-- FODMAP -->
+                <option value="muscle">Gain Muscle</option> <!-- Paleo -->
+                <option value="decrease sodium">Decrease Sodium</option>    <!-- DASH DASH DASH -->
+                <option value="disease prevention">Prevent heart disease</option> <!-- DASH -->
             </select>
             <select class="form-select" name="restrictions" id="rest">
                 <option value="" disabled selected>Choose any dietary restrictions:</option>
@@ -65,23 +63,18 @@
                 <option value="DF">Dairy Free</option>
                 <option value="veg">Vegetarian</option>
                 <option value="vegan">Vegan</option>
-                <option value="halal">Halal</option>
-                <option value="Kosher">Kosher</option>
                 <option value="sugarfree">Sugar Free</option>
                 <option value="FODMAP">FODMAP</option>
-                <option value="nutfree">Nut Free</option>
-                <option value="eggfree">Egg Free</option>
                 <option value="antiinflam">Anti-inflamatory</option>
                 <option value="nar">None</option>
             </select>
             <select class="form-select name="Medical Restrictions" id="md">
                 <option value="" disabled selected>Do you have any medical restrictions?</option>
-                <option value="celiac">Celiac</option>
+                <option value="celiac">Celiac's Disease</option>
                 <option value="lactose">Lactose Intolerant</option>
                 <option value="diabetes">Diabetes</option>
                 <option value="hypertension">Hypertension</option>
                 <option value="high cholesterol">High Cholesterol</option>
-                <option value="kidney disease">Kidney Disease</option>
                 <option value="ibs">IBS</option>
                 <option value="crohns">Crohn's Disease</option> 
                 <option value="nam">None</option>
@@ -101,23 +94,34 @@
                 <div class="card-body">
                     <h4 class="card-text" id="diet-type"></h4>
                     <p class="card-text" id="diet-description"></p>
-                    <div class="d-flex justify-content-around">
+                     <div class="d-flex justify-content-around">
                         <div id="diet-icons"></div>
                         <div id="diet-icons"></div>
                         <div id="diet-icons"></div>
                     </div>
-                    
-                    <h4>Recipes</h4>
-                    <p class="card-text" id="recipe-name"><a id="recipe-link" href=""></a></p>
+                    <div class="card-text">
+                        <h4 id="recipe-name"></h4>
+                        <a id="recipe-link" href=""></a>
+                    </div>
                     <div class="btn btn-success" id="random">Random Dish</div>
                 </div>
             </div>
-    <!-- Video section     -->
+    <!-- <-- Video section     -->
             <div class="card mb-4">
                 <div class="card-body">
-                    <p>Info Video of Selected Diet<br>Source: YouTube</p>
+                    <iframe id="diet-video" src="" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p id="source"></p>
                 </div>
             </div>
+        </div>
+        <!-- Navigate Diet Rankings -->
+        <div class="hover-card card" id="next-card">
+            <h4>Next Best Diet</h4>
+            <div>See what the next best diet is:</div>
+        
+            <div class="btn btn-success" id="back">Back</div>
+            <div class="btn btn-success" id="next">Next</div>
         </div>
     <!-- Hover card section     -->   
         <div class="hover-card card mb-4">
@@ -125,6 +129,7 @@
                 Flip Card / Hover Card?
             </div>
         </div>
+       
     </div>
 
 <!-- Footer -->
