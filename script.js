@@ -153,6 +153,7 @@ function getUserSelection(event) {
             if (value === userSelection.rest) {
                 diet[dietType].rank += 1;
             }
+            
             if (value === userSelection.md) {
                 diet[dietType].rank += 1;
             }
