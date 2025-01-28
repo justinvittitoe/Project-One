@@ -177,3 +177,43 @@ document.getElementById('newsletterForm').addEventListener('submit', function (e
     document.getElementById('popup').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const signInButton = document.getElementById('nav-signin');
+    const signInModal = document.getElementById('signInModal');
+    const closeButton = document.querySelector('.close-button');
+    const username = document.getElementById('username');
+    const welcomeMessage = document.getElementById('welcomeMessage');
+    
+    if (signInButton && signInModal && closeButton) {
+      signInButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent navigation for Sign In
+        signInModal.style.display = 'flex';
+      });
+  
+      closeButton.addEventListener('click', () => {
+        signInModal.style.display = 'none';
+      });
+  
+      window.addEventListener('click', (event) => {
+        if (event.target === signInModal) {
+          signInModal.style.display = 'non';
+        }
+      });
+    } else {
+      console.error("One or more elements are missing in the DOM.");
+    }
+    welcomeMessage.textContent = `Welcome, ${username.value}!`;
+    welcomeMessage.style.display = 'block';
+  });
+
+
+// Hover Card Functionality
+
+document.querySelectorAll('.flip-card').forEach((card) => {
+    card.addEventListener('click', () => {
+        const flipCardInner = card.querySelector('.flip-card-inner');
+        flipCardInner.classList.toggle('flipped');
+    });
+});
