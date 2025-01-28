@@ -113,15 +113,19 @@
                 <div class="card-body">
                     <h4 class="card-text" id="diet-type"></h4>
                     <p class="card-text" id="diet-description"></p>
-                    <!-- <div class="d-flex justify-content-around">
+                     <div class="d-flex justify-content-around">
                         <div id="diet-icons"></div>
                         <div id="diet-icons"></div>
                         <div id="diet-icons"></div>
-                    </div> -->
-                    <div class="btn btn-success">Random Dish</div>
+                    </div>
+                    <div class="card-text">
+                        <h4 id="recipe-name"></h4>
+                        <a id="recipe-link" href=""></a>
+                    </div>
+                    <div class="btn btn-success" id="random">Random Dish</div>
                 </div>
             </div>
-    <!-- Video section     -->
+    <!-- <-- Video section     -->
             <div class="card mb-4">
                 <div class="card-body">
                     <iframe id="diet-video" src="" 
@@ -129,6 +133,14 @@
                     <p id="source"></p>
                 </div>
             </div>
+        </div>
+        <!-- Navigate Diet Rankings -->
+        <div class="hover-card card" id="next-card">
+            <h4>Next Best Diet</h4>
+            <div>See what the next best diet is:</div>
+        
+            <div class="btn btn-success" id="back">Back</div>
+            <div class="btn btn-success" id="next">Next</div>
         </div>
     <!-- Hover card section     -->   
     <div class="flex-container">
@@ -154,6 +166,7 @@
                 </div>
             </div>
         </div>
+
 
         <div class="flip-card">
             <div class="flip-card-inner">

@@ -4,13 +4,18 @@ document.addEventListener("DOMContentLoaded", function() {
     // Select the submit button
     const submitButton = document.querySelector(".quiz .btn-success");
     const resultsDiv = document.querySelector(".results");
+    const nextCard = document.querySelector('#next-card')
     resultsDiv.style.display = "none";
+    nextCard.style.display = 'none';
+    
     
     // Add click event listener
     submitButton.addEventListener("click", function() {
         // Hide the parent quiz div
         document.querySelector(".quiz").style.display = "none";
         document.querySelector(".results").style.display = "block";
+        document.querySelector('#next-card').style.display = 'block';
+        
     });
 });
 
@@ -19,7 +24,11 @@ const goalbtn = document.querySelector('#goal');
 const restbtn = document.querySelector('#rest');
 const mdbtn = document.querySelector('#md');
 const agebtn = document.querySelector('#age');
-const submit = document.querySelector('#submit')
+const submit = document.querySelector('#submit');
+const random = document.querySelector('#random');
+const back = document.querySelector('#back')
+const next = document.querySelector('#next')
+
 
 //Preference choices
 const args = {
@@ -125,6 +134,8 @@ function loadDietRecommendation(selectedDiet) {
     }
 }
 
+
+
 //Get user selections
 function getUserSelection(event) {
     event.preventDefault();
@@ -141,11 +152,14 @@ function getUserSelection(event) {
     console.log(userSelection)
     //save to local storage
     localStorage.setItem('userSelection',JSON.stringify(userSelection));
-    
+
+    if(userSelection.rest === 'GF' || userSelection.md === 'celiac') {
+        diet.glutenFree.rank += 5;
+    }
+        
     for (const dietType in diet) {
         const primaryArray = diet[dietType].primary;
         //for each value in the primary array check to see if the user selection matches and if so add to the rank
-        console.log(primaryArray)
         for(const value of primaryArray) {
             if (value === userSelection.goal) {
                 diet[dietType].rank += 3;
@@ -168,12 +182,36 @@ function getUserSelection(event) {
     //display top diet
     const selectedDiet = sortedDiets[0];
     console.log(selectedDiet);
+    
     localStorage.setItem('topDiet',JSON.stringify(selectedDiet));
-    loadDietRecommendation(selectedDiet);
+    localStorage.setItem('dietRanking',JSON.stringify(sortedDiets));
+    //Load the diet recomendation
+    loadDietRecommendation(selectedDiet,sortedDiets);
+    //Call the random dish function
+    randomDish(selectedDiet);
+    //Once a user selected their inputs they can see the next diet or go back to the first
+    let currentIndex = 0;
+    next.addEventListener('click', function() {
+        const ranking = JSON.parse(localStorage.getItem('dietRanking'));
+        currentIndex = (currentIndex + 1) % ranking.length;
+        const selectedDiet = ranking[currentIndex];
+        loadDietRecommendation(selectedDiet);
+        randomDish(selectedDiet);
+    });
+    back.addEventListener('click', function() {
+        const ranking = JSON.parse(localStorage.getItem('dietRanking'));
+        currentIndex = (currentIndex - 1) % ranking.length;
+        const selectedDiet = ranking[currentIndex];
+        loadDietRecommendation(selectedDiet);
+        randomDish(selectedDiet);
+    });
+        
+    
 } 
 
 //Event Listener for User Selections
 submit.addEventListener('click',getUserSelection)
+
 //retrieve user selection and rank diets
 function getUserSelectionFromLocalStorage() {
     const storedSelection = localStorage.getItem('userSelection');
@@ -182,6 +220,66 @@ function getUserSelectionFromLocalStorage() {
     }
     return null;
 }
+
+
+
+//Random Dish function
+
+//event listener
+random.addEventListener('click',randomDish)
+
+const recipe = {
+    mediterranean: {
+        name: ['Winter White Bean and Radicchio Salad','Mediterranean Chicken Bowl','Airfryer Salmon and Swiss Chard'],    
+        link: [ 'https://www.goodhousekeeping.com/food-recipes/a41870158/winter-white-bean-and-radicchio-salad-recipe/','https://www.goodhousekeeping.com/food-recipes/a34221194/mediterranean-chicken-bowls-recipe/','https://www.goodhousekeeping.com/food-recipes/a41925316/air-fryer-salmon-and-swiss-chard-recipe/'],
+    },
+    keto:  {
+        name: ['Summer Squash Frittata Recipe','Korean Pineapple Beed Letuce Wraps','Crispy Chicken with White Wine Pan Sauce'],
+        link: ['https://www.goodhousekeeping.com/food-recipes/easy/a44726/summer-squash-frittata-recipe/','https://www.goodhousekeeping.com/food-recipes/easy/a47669/korean-pineapple-beef-lettuce-wraps-recipe/','https://www.goodhousekeeping.com/food-recipes/a37295/crispy-chicken-with-white-wine-pan-sauce-recipe/'],
+    },
+    
+    paleo:  {
+        name: ['Skillet Apple Chicken','Buffalo Beet BBQ Sauce Chicken Wings','Delicata Squash Pumpkin Curry'],
+        link: ['https://thepaleodiet.com/recipe/skillet-apple-chicken/','https://thepaleodiet.com/recipe/buffalo-beet-barbecue-sauce/','https://thepaleodiet.com/recipe/delicata-squash-pumpkin-curry/'],
+    },
+
+    vegan: {
+        name: ['Sesame Noodles','Ginger Spring Soup','Tomato and Chared Pepper Farro Salad'],
+        link:['https://www.goodhousekeeping.com/food-recipes/a43700507/sesame-noodles-recipe/','https://www.goodhousekeeping.com/food-recipes/a43044745/gingery-spring-soup-recipe/','https://www.goodhousekeeping.com/food-recipes/a43685982/tomato-and-charred-pepper-farro-salad-recipe/']
+    },
+    vegetarian: {
+        name: ['Cabbage Schnitzel','Pumpkin Ravioli','Green Chili White Bean Enchiladas'],
+        link:['https://www.delish.com/cooking/recipe-ideas/a42257701/cabbage-schnitzel-recipe/','https://www.delish.com/cooking/recipe-ideas/a28556182/pumpkin-ravioli-recipe/','https://www.delish.com/cooking/recipe-ideas/a61791670/green-chili-white-bean-enchiladas-recipe/']
+ 
+    },
+    whole30: {
+        name: ['Crockpot Chicken Tikka-Masala','Whole-30 Pot Roast','Baked Meatballs'],
+        link:['https://thedefineddish.com/crockpot-chicken-tikka-masala/','https://thedefineddish.com/the-best-whole30-pot-roast/','https://thedefineddish.com/epic-whole30-baked-meatballs/']
+
+    },
+    glutenFree: {
+        name: ['Beef Suya','Sheet Pan Honey Mustard Chicken','Asparagus Stuffed Chicken Rolls'],
+        link:['https://www.tasteofhome.com/recipes/beef-suya/','https://www.tasteofhome.com/recipes/sheet-pan-honey-mustard-chicken/','https://www.tasteofhome.com/recipes/asparagus-stuffed-chicken-rolls/']
+    },
+    fodmap: {
+        name: ['Chicken Ramen Noodle Soup','Vegetable Frittata','Tomato Basil Spaghetti Squash with Pumkin Seeds'],
+        link:['https://www.monashfodmap.com/recipe/chicken-ramen-noodle-soup/','https://www.monashfodmap.com/recipe/vegetable-frittata/','https://www.monashfodmap.com/recipe/tomato-basil-spaghetti-squash-with-pumpkin-seeds/']
+    },
+    
+}
+
+function randomDish(selectedDiet) {
+   
+    
+    const dish = Math.floor(Math.random() * 3);
+    selectedDiet = JSON.parse(localStorage.getItem('topDiet'))
+    document.getElementById("recipe-name").textContent = recipe[selectedDiet].name[dish];
+    document.getElementById("recipe-link").href = recipe[selectedDiet].link[dish];
+    document.getElementById("recipe-link").textContent = "Recipe Link";
+    
+}
+
+
 
 document.addEventListener('mousemove', function () {
     const scrollThreshold = window.innerHeight / 2; // Adjust this value as needed
@@ -202,6 +300,7 @@ document.getElementById('newsletterForm').addEventListener('submit', function (e
     document.getElementById('popup').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
 });
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -242,3 +341,4 @@ document.querySelectorAll('.flip-card').forEach((card) => {
         flipCardInner.classList.toggle('flipped');
     });
 });
+
