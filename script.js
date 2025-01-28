@@ -204,35 +204,37 @@ document.getElementById('newsletterForm').addEventListener('submit', function (e
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const signInButton = document.getElementById('nav-signin');
-    const signInModal = document.getElementById('signInModal');
-    const closeButton = document.querySelector('.close-button');
-    const username = document.getElementById('username');
-    const welcomeMessage = document.getElementById('welcomeMessage');
-    
-    if (signInButton && signInModal && closeButton) {
-      signInButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent navigation for Sign In
-        signInModal.style.display = 'flex';
-      });
-  
-      closeButton.addEventListener('click', () => {
-        signInModal.style.display = 'none';
-      });
-  
-      window.addEventListener('click', (event) => {
-        if (event.target === signInModal) {
-          signInModal.style.display = 'non';
-        }
-      });
-    } else {
-      console.error("One or more elements are missing in the DOM.");
-    }
-    welcomeMessage.textContent = `Welcome, ${username.value}!`;
-    welcomeMessage.style.display = 'block';
-  });
+// Get modal elements
+const modal = document.getElementById('signInModal');
+const openModalButton = document.getElementById('openModalButton');
+const closeModal = document.getElementById('closeModal');
+const signInForm = document.getElementById('signInForm');
+const welcomeMessage = document.getElementById('welcomeMessage');
 
+// Open modal
+openModalButton.addEventListener('click', () => {
+  modal.style.display = 'block';
+});
+
+// Close modal
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// Close modal when clicking outside the modal content
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+// Handle form submission
+signInForm.addEventListener('submit', (event) => {
+  event.preventDefault(); // Prevent form from reloading the page
+  const username = document.getElementById('username').value;
+  welcomeMessage.textContent = `Welcome, ${username}!`;
+  modal.style.display = 'none'; // Close the modal
+});
 
 // Hover Card Functionality
 
