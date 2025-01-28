@@ -5,7 +5,6 @@
     --secondaryDark: #3C3C3B;
     --headerFont: 'Rafaella Signature', sans-serif;
     --textFont: 'Lato', sans-serif;
-
 }
 
 body {
@@ -13,13 +12,6 @@ body {
     background-color: rgba(248, 235, 230, 0.25);
     color: var(--secondaryDark);
 }
-/* 
-header {
-    background-color: var(--primaryDark);
-    color: var(--secondaryLight);
-    font-family: var(--headerFont);
-    font-weight: bold;
-} */
 
 h1 {
     color: var(--primaryDark);
@@ -51,8 +43,6 @@ p {
 }
 
 /* Navbar */
-
-
 .navbar {
     background-color: var(--primaryDark) !important;
     /* position: fixed;
@@ -72,7 +62,6 @@ p {
     justify-content: space-around;
     font-family: var(--textFont);
     gap: 20px;
-
 }
 
 .nav-about {
@@ -84,16 +73,15 @@ p {
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.5s ease-in-out;
-}
-    .nav-about:hover {
+    }
+
+.nav-about:hover {
         background-color: var(--secondaryLight);
         color: var(--secondaryDark);
         opacity: 0.7;
     }
-  
 
-
-    .nav-contact  {
+.nav-contact  {
 
         background-color: var(--primaryLight);
         color: var(--secondaryDark);
@@ -104,7 +92,8 @@ p {
         cursor: pointer;
         transition: background-color 0.5s ease-in-out;
     }
-    .nav-contact:hover {
+    
+.nav-contact:hover {
         background-color: var(--secondaryLight);
         color: var(--secondaryDark);
         opacity: 0.7;
@@ -139,7 +128,7 @@ p {
     background-color: rgba(0, 0, 0, 0.4);
   }
 
-  .modal-content {
+.modal-content {
     background-color: #fff;
     margin: 15% auto;
     padding: 20px;
@@ -149,20 +138,20 @@ p {
     text-align: center;
   }
 
-  .close-button {
+.close-button {
     float: right;
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
   }
 
-  input {
+input {
     width: 90%;
     padding: 10px;
     margin: 10px 0;
   }
 
-  button {
+button {
     background-color: var(--primaryLight);
     color: var(--secondaryDark);
     font-family: var(--headerFont);
@@ -173,20 +162,12 @@ p {
     transition: background-color 0.5s ease-in-out;
   }
 
-  button:hover {
+button:hover {
     background-color: var(--secondaryLight);
     color: var(--secondaryDark);
     opacity: 0.7;
   }
 /* Logo */
-.text-center {
-
-}
-
-.my-4 {
-
-}
-
 .img-fluid {
     animation: fadeIn 2s ease-in forwards;
 }
@@ -201,23 +182,12 @@ p {
 }
 
 /* Quiz section */
-.quiz {
-
-}
-
 .form-select {
     font-family: var(--textFont);
     font-weight: lighter;
 }
 
 /* Results section */
-.results {
-
-}
-
-.card {
-}
-
 .card-header {
     background-color: var(--primaryLight);
 }
@@ -226,16 +196,6 @@ p {
     font-family: var(--textFont);
     font-weight: lighter;
 }
-
-.card-text {
-}
-
-.d-flex {
-}
-
-.justify-content-around {
-}
-
 
 /* Button */
 .btn-success {
@@ -246,8 +206,10 @@ p {
 }
 
 /* Video section */
-.card-body p {
-
+#diet-video {
+    width="560px";
+    height="560px"
+    border: 0;
 }
 
 /* Hover card section */
@@ -388,8 +350,3 @@ p {
     display: flex; /* Hidden by default */
 }
 
-#diet-video {
-    width="560px";
-    height="560px"
-    border: 0;
-}
